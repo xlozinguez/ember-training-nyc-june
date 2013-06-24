@@ -42,8 +42,25 @@
 
     <script type="text/x-handlebars" id="album">
       <div class="album-info">
-        Love
+        <img {{bindAttr src="artwork" alt="name"}}>
+        <h1>{{name}}</h1>
+        <h2>{{artist}}</h2>
       </div>
+
+      <table class="album-listing">
+        {{#each song in songs}}
+          <tr>
+            <td class="song-track">
+              <span class="track-number">{{song.track}}</span>
+            </td>
+            <td class="song-name">{{song.name}}</td>
+            <td class="song-duration">{{format-duration song.duration}}</td>
+          </tr>
+        {{/each}}
+        <tr>
+          <td class="total-duration" colspan="3">Total Time: 40:03</td>
+        </tr>
+      </table>
     </script>
 
     <div id="qunit" style="display: none"></div>
