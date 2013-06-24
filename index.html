@@ -15,12 +15,18 @@
     <script src="tests/load-tests.js"></script>
   </head>
   <body>
-    <script type="text/x-handlebars">
+    <script type="text/x-handlebars" id="application">
       <header><h1>BümBöx</h1></header>
+      {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" id="index">
       <div class="album-list">
         {{#each}}
           <div class="album">
-            <img {{bindAttr src="artwork" alt="name"}}>
+            {{#linkTo 'album' this}}
+              <img {{bindAttr src="artwork" alt="name"}}>
+            {{/linkTo}}
             <p class="album-name">{{name}}</p>
             <p class="album-artist">{{artist}}</p>
             <p class="song-count">
@@ -31,6 +37,12 @@
             </p>
           </div>
         {{/each}}
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" id="album">
+      <div class="album-info">
+        Love
       </div>
     </script>
 
