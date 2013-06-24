@@ -36,5 +36,4 @@
     var wholeSec = (remainSec < 10) ? '0'+remainSec : remainSec;
     return new Handlebars.SafeString(wholeMin+':'+wholeSec);
   });
-
 })();
